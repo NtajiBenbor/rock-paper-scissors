@@ -35,26 +35,18 @@ function playGame() {
 
   function playRound(playerChoice, computerChoice) {
     let userChoice = playerChoice.toLowerCase();
-    if (userChoice === "scissors" && computerChoice === "paper") {
-      console.log(`you win! ${playerChoice} beats ${computerChoice}`);
-      humanScore++;
-    } else if (userChoice === "paper" && computerChoice === "scissors") {
-      console.log(`you lost! ${computerChoice} beats ${playerChoice}`);
-      computerScore++;
-    } else if (userChoice === "paper" && computerChoice === "rock") {
-      console.log(`you win! ${playerChoice} beats ${computerChoice}`);
-      humanScore++;
-    } else if (userChoice === "rock" && computerChoice === "paper") {
-      console.log(`you lost! ${computerChoice} beats ${playerChoice}`);
-      computerScore++;
-    } else if (userChoice === "rock" && computerChoice === "scissors") {
-      console.log(`you win! ${playerChoice} beats ${computerChoice}`);
-      humanScore++;
-    } else if (userChoice === "scissors" && computerChoice === "rock") {
-      console.log(`you lost! ${computerChoice} beats ${playerChoice}`);
-      computerScore++;
-    } else if (playerChoice === computerChoice) {
+    if (playerChoice === computerChoice) {
       console.log(`it is a tie`);
+    } else if (
+      (userChoice === "scissors" && computerChoice === "paper") ||
+      (userChoice === "paper" && computerChoice === "rock") ||
+      (userChoice === "rock" && computerChoice === "scissors")
+    ) {
+      console.log(`you win! ${playerChoice} beats ${computerChoice}`);
+      humanScore++;
+    } else {
+      console.log(`you lost! ${computerChoice} beats ${playerChoice}`);
+      computerScore++;
     }
   }
 }
